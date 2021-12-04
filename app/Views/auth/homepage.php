@@ -18,7 +18,10 @@
 
 	<!-- CSS File -->
 	<link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link href="<?php echo base_url('css/style.css'); ?>" rel='stylesheet'/>
+
 </head>
+
 <body>
     <h1>This is the homepage</h1>
 
@@ -80,7 +83,8 @@
 		<!-- Slider -->
 
 
-		<div class="main_slider" style="background-image:url(/images/slider_1.jpg;)">
+		<div class="main_slider" style="background-image: " img src= "<?php echo base_url('images/slider_1.jpg');?>" >
+       
 			<div class="container fill_hight">
 				<div class="row aligh-items-center fill_hight">
 					<div class="col">
