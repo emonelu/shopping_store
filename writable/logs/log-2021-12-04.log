@@ -1,0 +1,60 @@
+CRITICAL - 2021-12-04 02:09:06 --> Invalid file: auth/homepage.php
+#0 /Applications/MAMP/htdocs/shopping_store /system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('auth/homepage.p...')
+#1 /Applications/MAMP/htdocs/shopping_store /system/Common.php(1092): CodeIgniter\View\View->render('auth/homepage.p...', Array, true)
+#2 /Applications/MAMP/htdocs/shopping_store /app/Controllers/Auth.php(30): view('auth/homepage.p...')
+#3 /Applications/MAMP/htdocs/shopping_store /system/CodeIgniter.php(802): App\Controllers\Auth->homePage()
+#4 /Applications/MAMP/htdocs/shopping_store /system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#5 /Applications/MAMP/htdocs/shopping_store /system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Applications/MAMP/htdocs/shopping_store /public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /Applications/MAMP/htdocs/shopping_store /system/Commands/Server/rewrite.php(43): require_once('/Applications/M...')
+#8 {main}
+CRITICAL - 2021-12-04 02:13:19 --> Invalid file: auth/homepage.php
+#0 /Applications/MAMP/htdocs/shopping_store /system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('auth/homepage.p...')
+#1 /Applications/MAMP/htdocs/shopping_store /system/Common.php(1092): CodeIgniter\View\View->render('auth/homepage.p...', Array, true)
+#2 /Applications/MAMP/htdocs/shopping_store /app/Controllers/Auth.php(30): view('auth/homepage.p...')
+#3 /Applications/MAMP/htdocs/shopping_store /system/CodeIgniter.php(802): App\Controllers\Auth->homePage()
+#4 /Applications/MAMP/htdocs/shopping_store /system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#5 /Applications/MAMP/htdocs/shopping_store /system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Applications/MAMP/htdocs/shopping_store /public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /Applications/MAMP/htdocs/shopping_store /system/Commands/Server/rewrite.php(43): require_once('/Applications/M...')
+#8 {main}
+CRITICAL - 2021-12-04 02:13:52 --> Invalid file: auth/homepage.php
+#0 /Applications/MAMP/htdocs/shopping_store /system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('auth/homepage.p...')
+#1 /Applications/MAMP/htdocs/shopping_store /system/Common.php(1092): CodeIgniter\View\View->render('auth/homepage.p...', Array, true)
+#2 /Applications/MAMP/htdocs/shopping_store /app/Controllers/Auth.php(30): view('auth/homepage.p...')
+#3 /Applications/MAMP/htdocs/shopping_store /system/CodeIgniter.php(802): App\Controllers\Auth->homePage()
+#4 /Applications/MAMP/htdocs/shopping_store /system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#5 /Applications/MAMP/htdocs/shopping_store /system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Applications/MAMP/htdocs/shopping_store /public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /Applications/MAMP/htdocs/shopping_store /system/Commands/Server/rewrite.php(43): require_once('/Applications/M...')
+#8 {main}
+CRITICAL - 2021-12-04 02:14:08 --> Invalid file: auth/homepage.php
+#0 /Applications/MAMP/htdocs/shopping_store /system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('auth/homepage.p...')
+#1 /Applications/MAMP/htdocs/shopping_store /system/Common.php(1092): CodeIgniter\View\View->render('auth/homepage.p...', Array, true)
+#2 /Applications/MAMP/htdocs/shopping_store /app/Controllers/Auth.php(30): view('auth/homepage.p...')
+#3 /Applications/MAMP/htdocs/shopping_store /system/CodeIgniter.php(802): App\Controllers\Auth->homePage()
+#4 /Applications/MAMP/htdocs/shopping_store /system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#5 /Applications/MAMP/htdocs/shopping_store /system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Applications/MAMP/htdocs/shopping_store /public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /Applications/MAMP/htdocs/shopping_store /system/Commands/Server/rewrite.php(43): require_once('/Applications/M...')
+#8 {main}
+CRITICAL - 2021-12-04 02:19:44 --> Invalid file: auth/homepage.php
+#0 /Applications/MAMP/htdocs/shopping_store /system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('auth/homepage.p...')
+#1 /Applications/MAMP/htdocs/shopping_store /system/Common.php(1092): CodeIgniter\View\View->render('auth/homepage.p...', Array, true)
+#2 /Applications/MAMP/htdocs/shopping_store /app/Controllers/Auth.php(30): view('auth/homepage.p...')
+#3 /Applications/MAMP/htdocs/shopping_store /system/CodeIgniter.php(802): App\Controllers\Auth->homePage()
+#4 /Applications/MAMP/htdocs/shopping_store /system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#5 /Applications/MAMP/htdocs/shopping_store /system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Applications/MAMP/htdocs/shopping_store /public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /Applications/MAMP/htdocs/shopping_store /system/Commands/Server/rewrite.php(43): require_once('/Applications/M...')
+#8 {main}
+CRITICAL - 2021-12-04 02:22:54 --> Invalid file: auth/homepage.php
+#0 /Applications/MAMP/htdocs/shopping_store /system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('auth/homepage.p...')
+#1 /Applications/MAMP/htdocs/shopping_store /system/Common.php(1092): CodeIgniter\View\View->render('auth/homepage.p...', Array, true)
+#2 /Applications/MAMP/htdocs/shopping_store /app/Controllers/Auth.php(30): view('auth/homepage.p...')
+#3 /Applications/MAMP/htdocs/shopping_store /system/CodeIgniter.php(802): App\Controllers\Auth->homePage()
+#4 /Applications/MAMP/htdocs/shopping_store /system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#5 /Applications/MAMP/htdocs/shopping_store /system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Applications/MAMP/htdocs/shopping_store /public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /Applications/MAMP/htdocs/shopping_store /system/Commands/Server/rewrite.php(43): require_once('/Applications/M...')
+#8 {main}

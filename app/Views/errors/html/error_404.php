@@ -76,7 +76,7 @@
 			<?php if (! empty($message) && $message !== '(null)') : ?>
 				<?= nl2br(esc($message)) ?>
 			<?php else : ?>
-				Sorry! Cannot seem to find the page you were looking for.
+				Sorry! Mihai messed up again...
 			<?php endif ?>
 		</p>
 	</div>
