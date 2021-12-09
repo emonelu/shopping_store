@@ -83,7 +83,8 @@
 		<!-- Slider -->
 
 
-		<div class="main_slider" style="background-image: " img src= "<?php echo base_url('images/slider_1.jpg');?>" >
+		<div class="main_slider" style="background:url ('images/slider_1.jpg')" >
+
        
 			<div class="container fill_hight">
 				<div class="row aligh-items-center fill_hight">
