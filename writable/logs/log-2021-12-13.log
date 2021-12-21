@@ -1,0 +1,70 @@
+CRITICAL - 2021-12-13 06:27:15 --> Trying to access array offset on value of type null
+#0 C:\Users\Ian\Documents\shopping_store\app\Views\auth\homepage.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\Users\\Ian\\Do...', 33)
+#1 C:\Users\Ian\Documents\shopping_store\system\View\View.php(214): include('C:\\Users\\Ian\\Do...')
+#2 C:\Users\Ian\Documents\shopping_store\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\Ian\Documents\shopping_store\system\Common.php(1092): CodeIgniter\View\View->render('auth/homepage.p...', Array, true)
+#4 C:\Users\Ian\Documents\shopping_store\app\Controllers\Auth.php(32): view('auth/homepage.p...')
+#5 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(802): App\Controllers\Auth->homepage()
+#6 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Ian\Documents\shopping_store\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Ian\Documents\shopping_store\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Ian\\Do...')
+#10 {main}
+CRITICAL - 2021-12-13 13:02:11 --> syntax error, unexpected variable "$session"
+#0 C:\Users\Ian\Documents\shopping_store\system\Router\Router.php(160): CodeIgniter\Router\Router->autoRoute('Auth')
+#1 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(702): CodeIgniter\Router\Router->handle('Auth')
+#2 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(358): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Ian\Documents\shopping_store\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Ian\Documents\shopping_store\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Ian\\Do...')
+#6 {main}
+CRITICAL - 2021-12-13 13:02:50 --> syntax error, unexpected token "}"
+#0 C:\Users\Ian\Documents\shopping_store\system\Router\Router.php(160): CodeIgniter\Router\Router->autoRoute('Auth')
+#1 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(702): CodeIgniter\Router\Router->handle('Auth')
+#2 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(358): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Ian\Documents\shopping_store\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Ian\Documents\shopping_store\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Ian\\Do...')
+#6 {main}
+ERROR - 2021-12-13 13:10:50 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SELSCT* FROM tbl_users WHERE email='ianovic75@gmail.com' AND password=''' at line 1
+CRITICAL - 2021-12-13 13:10:50 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SELSCT* FROM tbl_users WHERE email='ianovic75@gmail.com' AND password=''' at line 1
+#0 C:\Users\Ian\Documents\shopping_store\system\Database\MySQLi\Connection.php(280): mysqli->query('SELSCT* FROM tb...')
+#1 C:\Users\Ian\Documents\shopping_store\system\Database\BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute('SELSCT* FROM tb...')
+#2 C:\Users\Ian\Documents\shopping_store\system\Database\BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery('SELSCT* FROM tb...')
+#3 C:\Users\Ian\Documents\shopping_store\app\Models\UserModel.php(14): CodeIgniter\Database\BaseConnection->query('SELSCT* FROM tb...')
+#4 C:\Users\Ian\Documents\shopping_store\app\Controllers\Auth.php(21): App\Models\UserModel->checkCreds('ianovic75@gmail...', NULL)
+#5 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(802): App\Controllers\Auth->login()
+#6 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Ian\Documents\shopping_store\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Ian\Documents\shopping_store\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Ian\\Do...')
+#10 {main}
+ERROR - 2021-12-13 13:10:53 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SELSCT* FROM tbl_users WHERE email='ianovic75@gmail.com' AND password=''' at line 1
+CRITICAL - 2021-12-13 13:10:53 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SELSCT* FROM tbl_users WHERE email='ianovic75@gmail.com' AND password=''' at line 1
+#0 C:\Users\Ian\Documents\shopping_store\system\Database\MySQLi\Connection.php(280): mysqli->query('SELSCT* FROM tb...')
+#1 C:\Users\Ian\Documents\shopping_store\system\Database\BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute('SELSCT* FROM tb...')
+#2 C:\Users\Ian\Documents\shopping_store\system\Database\BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery('SELSCT* FROM tb...')
+#3 C:\Users\Ian\Documents\shopping_store\app\Models\UserModel.php(14): CodeIgniter\Database\BaseConnection->query('SELSCT* FROM tb...')
+#4 C:\Users\Ian\Documents\shopping_store\app\Controllers\Auth.php(21): App\Models\UserModel->checkCreds('ianovic75@gmail...', NULL)
+#5 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(802): App\Controllers\Auth->login()
+#6 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Ian\Documents\shopping_store\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Ian\Documents\shopping_store\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Ian\\Do...')
+#10 {main}
+CRITICAL - 2021-12-13 13:11:20 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+#0 C:\Users\Ian\Documents\shopping_store\app\Controllers\Auth.php(23): count(NULL)
+#1 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(802): App\Controllers\Auth->login()
+#2 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#3 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Ian\Documents\shopping_store\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Ian\Documents\shopping_store\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Ian\\Do...')
+#6 {main}
+CRITICAL - 2021-12-13 13:11:47 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+#0 C:\Users\Ian\Documents\shopping_store\app\Controllers\Auth.php(23): count(NULL)
+#1 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(802): App\Controllers\Auth->login()
+#2 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#3 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Ian\Documents\shopping_store\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Ian\Documents\shopping_store\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Ian\\Do...')
+#6 {main}

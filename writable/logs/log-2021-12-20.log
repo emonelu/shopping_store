@@ -1,0 +1,8 @@
+CRITICAL - 2021-12-20 10:04:23 --> Undefined property: App\Controllers\Items::$result
+#0 C:\Users\Ian\Documents\shopping_store\app\Controllers\Items.php(17): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\Users\\Ian\\Do...', 17)
+#1 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(802): App\Controllers\Items->fetchCart()
+#2 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Items))
+#3 C:\Users\Ian\Documents\shopping_store\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Ian\Documents\shopping_store\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Ian\Documents\shopping_store\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Ian\\Do...')
+#6 {main}

@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200;400;500&display=swap');
+
+*{
+    border: none;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Source Sans 3', sans-serif;
+}
+.container{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(234,249,249,0.67) 0.1%, rgba(239,249,251,0.63) 90.1% );    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-wrapper{
+    width: 40%;
+    height: 50%;
+    background-color: #1E352F;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(189,189,189,0.55);
+-moz-box-shadow: 10px 10px 5px 0px rgba(189,189,189,0.55);
+box-shadow: 10px 10px 5px 0px rgba(189,189,189,0.55);
+}
+.register-wrapper{
+    width: 40%;
+    height: 56%;
+    background-color: #1E352F;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(189,189,189,0.55);
+-moz-box-shadow: 10px 10px 5px 0px rgba(189,189,189,0.55);
+box-shadow: 10px 10px 5px 0px rgba(189,189,189,0.55);
+}
+.left{
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    border-radius: 10px 0 0 10px;
+    background-image: url(/images/login.jpg);
+background-position:center;
+background-size: contain;
+/* background-repeat: no-repeat; */
+}
+.left-registration{
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    border-radius: 10px 0 0 10px;
+    background-image: url(/images/register.jpg);
+background-position:center;
+background-size: contain;
+/* background-repeat: no-repeat; */
+}
+.right{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.right p{
+    margin-bottom:30px ;
+}
+.right p:nth-of-type(1){
+    font-size: 22px;
+}
+.right input{
+    width: 295px;
+    height: 6%;
+    border-radius: 2px;
+    padding-left: 10px;
+    color: #1E352F;
+}
+.right label{
+    margin-top: 10px;
+}
+.right button{
+    margin-top: 50px;
+    padding: 10px;
+    max-width: 295px;
+    border-radius: 5px;
+    color: black;
+    font-size: 18px;
+    background-color:bisque;
+    transition: ease 0.3s;
+}
+.right button:hover{
+    cursor: pointer;
+    background-color: antiquewhite;
+}
+.message{
+    max-width: 295px;
+    height: 12%;
+    background-color: rgba(204, 27, 27, 0.452);
+    border: 1px solid rgba(214, 28, 28, 0.596);
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+}
+a{
+    font-size: 18px;
+    margin-top: 30%;
+}
+select,option{
+    color: #1E352F;
+}
