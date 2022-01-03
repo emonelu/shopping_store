@@ -18,7 +18,7 @@
 			</div>
 			<ul>
 				<li> <a href="">About</a></li>
-				<li><a href="">Categories</a> </li>
+				<li><span class="span-link" id="categories-hoverable" href="">Categories</span> </li>
 				<li><span id="cart-open">Cart</span></li>
 				<li><?php
 					$session = session();
@@ -41,6 +41,11 @@
 			<p>A colection of new official wear that is as a result of the new Official Wear partnerships forged between us and Le Suit.</p>
 			<a href="">Buy Now</a>
 			<a href="">About Us</a>
+		</div>
+		<div class="categories">
+			<a href="">Men</a>
+			<a href="">Women</a>
+			<a href="">Children</a>
 		</div>
 	</section>
 	<input id="userid" value="<?php $session = session();
@@ -109,12 +114,11 @@
 			};
 			$.ajax({
 				url: "<?php echo base_url('Items/fetchCart') ?>",
-				method: 'post',
+				method: 'POST',
 				data: data,
 				success: function(response) {
 					cart = response;
 					//TODO you need  to find a way to loop through the elemets in an object
-					console.log(cart);
 					$.each(cart, function(key, value) {
 						$("#cart-body").append(
 							'<div class="cart-item"><div id="cart-image-container"><img id="cart-image" src="' + cart.items.product_image + '"></div><div id="cart-data"><p><b>' + cart.items.product_name + '</b></p><p>Ksh &nbsp' + cart.items.unit_price + '.00</p><span class="iconify remove" data-icon="fontisto:shopping-basket-remove" id="delete-cart-item" title="Remove item from Cart"></span></div><hr></div>'

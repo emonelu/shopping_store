@@ -11,5 +11,8 @@ $(document).ready(function() {
         $('.cart-sidebar').css('display', 'flex')
 
     })
+    $('#categories-hoverable').click(function() {
+        $('.categories').css('display', 'flex')
 
+    })
 })
