@@ -84,9 +84,10 @@ nav ul li button:hover{
 .right-text a:nth-of-type(2){
     margin-left:70px ;
 }
- a:hover{
+ a:hover,span:hover{
     text-decoration: underline;
     color: rgb(170, 170, 170);
+    cursor: pointer;
 }
 #cart-open:hover{
     cursor: pointer;
@@ -186,4 +187,21 @@ nav ul li button:hover{
 }
 .remove:hover{
     cursor: pointer;
+}
+.categories{
+    position: inherit;
+    display: none;
+    flex-direction: column;
+    width: 150px;
+    height: 100px;
+    background-color: antiquewhite;
+    top: 0%;
+    right: 24%;
+}
+.categories a{
+margin: 0 auto;
+width: 70%;
+height: 33%;
+background:white ;
+text-align: center;
 }
