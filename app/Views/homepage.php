@@ -24,7 +24,8 @@
 					$session = session();
 
 					if ($session->get('name') == "") {
-						echo '<button id="login-button">Login</button><button  id="register-button">Register</button> ';
+						echo '<button id="login-button">Login</button><button  id="register-button">Register</button>
+						';
 					} else {
 						echo '<a title="View Your Profile" href="' . site_url('Home/user') . '"  id="profile-button">' . $session->get('name') . '</a><button  id="logout-button">Logout</button>';
 					}
@@ -104,33 +105,32 @@
 			})
 			var id = $('#userid').val();
 
+			function fetchCart() {
+				var total_cost = 0
+				var cart = {}
+				var data = {
+					'userid': $('#userid').val()
+				};
+				$.ajax({
+					url: "<?php echo base_url('Items/fetchCart') ?>",
+					method: 'POST',
+					data: data,
+					success: function(response) {
+						cart = response;
+						//TODO you need  to find a way to loop through the elemets in an object
+						$.each(cart, function(key, value) {
+							$("#cart-body").append(
+								'<div class="cart-item"><div id="cart-image-container"><img id="cart-image" src="' + cart.items.product_image + '"></div><div id="cart-data"><p><b>' + cart.items.product_name + '</b></p><p>Ksh &nbsp' + cart.items.unit_price + '.00</p><span class="iconify remove" data-icon="fontisto:shopping-basket-remove" id="delete-cart-item" title="Remove item from Cart"></span></div><hr></div>'
+							)
+							total_cost = total_cost + parseInt(cart.items.unit_price, 10)
+						})
+						$('#total').html('');
+						$('#total').html('Ksh&nbsp' + total_cost + '.00');
+
+					}
+				})
+			}
 		})
-
-		function fetchCart() {
-			var total_cost = 0
-			var cart = {}
-			var data = {
-				'userid': $('#userid').val()
-			};
-			$.ajax({
-				url: "<?php echo base_url('Items/fetchCart') ?>",
-				method: 'POST',
-				data: data,
-				success: function(response) {
-					cart = response;
-					//TODO you need  to find a way to loop through the elemets in an object
-					$.each(cart, function(key, value) {
-						$("#cart-body").append(
-							'<div class="cart-item"><div id="cart-image-container"><img id="cart-image" src="' + cart.items.product_image + '"></div><div id="cart-data"><p><b>' + cart.items.product_name + '</b></p><p>Ksh &nbsp' + cart.items.unit_price + '.00</p><span class="iconify remove" data-icon="fontisto:shopping-basket-remove" id="delete-cart-item" title="Remove item from Cart"></span></div><hr></div>'
-						)
-						total_cost = total_cost + parseInt(cart.items.unit_price, 10)
-					})
-					$('#total').html('');
-					$('#total').html('Ksh&nbsp' + total_cost + '.00');
-
-				}
-			})
-		}
 	</script>
 	<script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
 </body>
