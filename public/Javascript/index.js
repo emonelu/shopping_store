@@ -3,10 +3,10 @@ $(document).ready(function() {
         $('.cart-sidebar').css('display', 'none')
     })
     $('#close-login-box').click(function() {
-        $('.floating-login').css('display', 'none')
+        $('.login').css('display', 'none')
     })
     $('#close-register-box').click(function() {
-        $('.floating-register').css('display', 'none')
+        $('.register').css('display', 'none')
     })
     $('#close').click(function() {
         $('.floating').css('display', 'none')
@@ -21,10 +21,10 @@ $(document).ready(function() {
     })
     
     $('#login-button').click(function() {
-        $('.floating-login').css('display', 'flex')
+        $('.login').css('display', 'flex')
     })
     $('#register-button').click(function() {
-        $('.floating-register').css('display', 'flex')
+        $('.register').css('display', 'flex')
     })
     $('#categories-hoverable').click(function() {
         $('.categories').css('display', 'flex')

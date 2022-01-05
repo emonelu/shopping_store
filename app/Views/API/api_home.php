@@ -42,21 +42,21 @@
                                 }
                                 ?></span>
     </div>
-    <div class="floating-login">
+    <div class="floating-boxes login">
         <p>Login to Your Account</p>
-        <span id="error">Username and Key combination is wrong</span>
-        <input placeholder="Username" id="email" type="text">
-        <input id="password" placeholder="Key" type="password">
+        <span id="error"></span>
+        <input placeholder="Username" id="username" type="text">
+        <input id="key" placeholder="Key" type="password">
         <button id="login">Login</button>
-        <span id="close-login-box">Cancel</span>
+        <span class="close-boxes" id="close-login-box">Cancel</span>
     </div>
-    <div class="floating-register">
+    <div class="floating-boxes register">
         <p>Register for a new Account</p>
-        <span id="error">No filed can be left unfilled</span>
+        <span id="error"></span>
         <input required placeholder="Username" id="new-username" type="text">
-        <input id="new-key" placeholder="Key" type="password">
+        <input required id="new-key" placeholder="Key" type="password">
         <button id="register">Sign Up</button>
-        <span id="close-register-box">Cancel</span>
+        <span class="close-boxes" id="close-register-box">Cancel</span>
     </div>
     <section id="banner">
 
@@ -158,6 +158,68 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
 <script src="/Javascript/index.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#login').click(function() {
+            var creds = {
+                'username': $('#username').val(),
+                'key': $('#key').val()
+            }
+            if (creds.username == "" || creds.key == "") {
+                $('#error').html('Fields cannot be empty')
+                $('#error').css('display', 'flex')
 
+            }
+
+            $.ajax({
+                method: "post",
+                url: "<?php echo base_url('Auth/APILogin') ?>",
+                data: creds,
+                success: function(response) {
+                    if (response == 1) {
+                        window.location.reload()
+                    } else {
+                        if (response == 2 || response == 3) {
+                            $('#error').html('')
+                            $('#error').html('Username and Key combination is wrong')
+                            $('#error').css('display', 'flex');
+                            setTimeout(function() {
+                                $('#error').css('display', 'none')
+                            }, 3000)
+
+
+                        }
+
+                    }
+                }
+            });
+        })
+        $('#register').click(function() {
+            var details = {
+                'username': $('#new-username').val(),
+                'key': $('#new-key').val(),
+
+            }
+            if (details.username == "" || details.key == "") {
+                $('#error').html('No fields can be left empty')
+                $('#error').css('display', 'flex')
+
+            }
+
+            $.ajax({
+                url: "<?php echo base_url('Auth/apiReg') ?>",
+                method: 'post',
+                data: details,
+                success: function(result) {
+                    if (result == 1) {
+                        $('.login').css('display', 'flex')
+                        $('.register').css('display', 'none')
+                    }
+
+                }
+            })
+        })
+    })
+</script>
 
 </html>

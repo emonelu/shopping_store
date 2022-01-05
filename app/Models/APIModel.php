@@ -7,11 +7,36 @@ use CodeIgniter\Model;
 class APIModel extends Model
 {
 
+    public function auth($username, $key)
+    {
+
+        $db = db_connect();
+
+        $result = $db->query("SELECT* FROM tbl_apiusers WHERE username='$username' AND user_key='$key'");
+
+        $row = $result->getRowArray();
+
+        return $row;
+    }
+    public function addapiUser($username, $key)
+    {
+
+        $db = db_connect();
+
+        $result = $db->query("INSERT INTO tbl_apiusers (username,user_key)VALUES('$username','$key')");
+
+        if ($result) {
+            return 1;
+        } else {
+            return $result;
+        }
+    }
+
+
     public function token_validator($token)
     {
         $db = db_connect();
         $error = 'Token is Invalid or does not exist';
-        $success = 'Nice';
 
         $valid = $db->query("SELECT * FROM tbl_apitokens WHERE api_token='$token'");
 
@@ -20,6 +45,19 @@ class APIModel extends Model
             return TRUE;
         } else {
             return FALSE;
+        }
+    }
+    public function getToken($apiuserid)
+    {
+        $db = db_connect();
+        $error = 'Token is Invalid or does not exist';
+
+        $result = $db->query("SELECT * FROM tbl_apitokens WHERE api_userid ='$apiuserid'");
+
+        if (count($result->getResultArray()) < 1) {
+            return $error;
+        } else {
+            return $this->response->getArray($result);
         }
     }
     public function fetchUsersList($token)

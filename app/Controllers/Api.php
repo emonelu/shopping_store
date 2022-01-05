@@ -8,6 +8,10 @@ use CodeIgniter\RESTful\ResourceController;
 
 class Api extends BaseController
 {
+    public function index()
+    {
+        return view('API/api_home');
+    }
     public function token_tester()
     {
         $model = new APIModel();
@@ -17,14 +21,7 @@ class Api extends BaseController
 
         return $this->response->setJson($result);
     }
-    public function index()
-    {
-        return view('API/api_home');
-    }
-    public function api_login()
-    {
-        return view('API/api_login');
-    }
+
     public function usersList()
     {
         $model = new APIModel();
