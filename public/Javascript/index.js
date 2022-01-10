@@ -12,10 +12,7 @@ $(document).ready(function() {
         $('.floating').css('display', 'none')
 
     })
-    $('#cart-open').click(function() {
-        $('.cart-sidebar').css('display', 'flex')
 
-    })
     $('#reveal_token').click(function() {
         $('.floating').css('display', 'flex')
     })

@@ -89,7 +89,7 @@
 
 	<script>
 		$(document).ready(function() {
-			fetchCart()
+
 			$('#login-button').click(function() {
 				window.location.replace('<?php echo base_url('Auth/index') ?>')
 			})
@@ -107,20 +107,22 @@
 
 			function fetchCart() {
 				var total_cost = 0
-				var cart = {}
-				var data = {
+				var n = 0
+				var user_data = {
 					'userid': $('#userid').val()
 				};
 				$.ajax({
 					url: "<?php echo base_url('Items/fetchCart') ?>",
 					method: 'post',
-					data: data,
-					success: function(response) {
-						$.each(cart, function(key, value) {
-							$("#cart-body").append(
-								'<div class="cart-item"><div id="cart-image-container"><img id="cart-image" src="' + cart.items.product_image + '"></div><div id="cart-data"><p><b>' + cart.items.product_name + '</b></p><p>Ksh &nbsp' + cart.items.unit_price + '.00</p><span class="iconify remove" data-icon="fontisto:shopping-basket-remove" id="delete-cart-item" title="Remove item from Cart"></span></div><hr></div>'
-							)
-							total_cost = total_cost + parseInt(cart.items.unit_price, 10)
+					data: user_data,
+					success: function(result) {
+						$.each(result, function(key, value) {
+							$.each(this, function(key, value) {
+								$("#cart-body").append(
+									'<div class="cart-item"><div id="cart-image-container"><img id="cart-image" src="' + this.product_image + '"></div><div id="cart-data"><p><b>' + this.product_name + '</b></p><p>Ksh &nbsp' + this.unit_price + '.00</p><span class="iconify remove" data-icon="fontisto:shopping-basket-remove" id="delete-cart-item" title="Remove item from Cart"></span></div><hr></div>'
+								)
+								total_cost = total_cost + parseInt(this.unit_price, 10)
+							})
 						})
 						$('#total').html('');
 						$('#total').html('Ksh&nbsp' + total_cost + '.00');
@@ -128,6 +130,10 @@
 					}
 				})
 			}
+			$('#cart-open').click(function() {
+				$('.cart-sidebar').css('display', 'flex')
+				fetchCart()
+			})
 		})
 	</script>
 	<script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
