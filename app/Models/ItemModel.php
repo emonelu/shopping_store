@@ -17,4 +17,13 @@ class ItemModel extends Model
 
 		return $result->getResult();
 	}
+	public function removeItem($userid, $product_id)
+	{
+
+		$db = db_connect();
+
+		$result = $db->query("");
+
+		return $result;
+	}
 }

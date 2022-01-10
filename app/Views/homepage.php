@@ -71,6 +71,7 @@
 			</div>';
 			}
 			?>
+
 			<div id="cart-message">
 				<p id="display-message">
 				</p>
@@ -89,6 +90,7 @@
 
 	<script>
 		$(document).ready(function() {
+			fetchCart()
 
 			$('#login-button').click(function() {
 				window.location.replace('<?php echo base_url('Auth/index') ?>')
@@ -119,21 +121,40 @@
 						$.each(result, function(key, value) {
 							$.each(this, function(key, value) {
 								$("#cart-body").append(
-									'<div class="cart-item"><div id="cart-image-container"><img id="cart-image" src="' + this.product_image + '"></div><div id="cart-data"><p><b>' + this.product_name + '</b></p><p>Ksh &nbsp' + this.unit_price + '.00</p><span class="iconify remove" data-icon="fontisto:shopping-basket-remove" id="delete-cart-item" title="Remove item from Cart"></span></div><hr></div>'
+									'<div class="cart-item"><div id="cart-image-container"><img id="cart-image" src="' + this.product_image + '"></div><div id="cart-data"><p><b>' + this.product_name + '</b></p><p>Ksh &nbsp' + this.unit_price + '.00</p><button class=" remove" data-id=' + this.product_id + ' id="remove-cart" title="Remove item from Cart">Remove</button></div><hr></div>'
 								)
 								total_cost = total_cost + parseInt(this.unit_price, 10)
 							})
 						})
 						$('#total').html('');
-						$('#total').html('Ksh&nbsp' + total_cost + '.00');
+
+						$('#total').html('Ksh&nbsp' + total_cost.toLocaleString('en') + '.00');
 
 					}
 				})
 			}
-			$('#cart-open').click(function() {
-				$('.cart-sidebar').css('display', 'flex')
-				fetchCart()
-			})
+
+			function removeItem(product_id) {
+				var data = {
+					'userid': $('#userid').val(),
+					'product_id': product_id
+				};
+				$.ajax({
+					url: "<?php echo base_url('Items/removeItem') ?>",
+					method: 'post',
+					data: data,
+					success: function(result) {
+						if (result) {
+							console.log(result);
+							fetchCart()
+						} else {
+							console.log('error');
+						}
+
+					}
+				})
+			}
+
 		})
 	</script>
 	<script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>

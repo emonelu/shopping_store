@@ -16,4 +16,14 @@ class Items extends BaseController
 
         return $this->response->setJson($result);
     }
+    public function removeItem()
+    {
+        $pop = new ItemModel();
+        $userid = $this->request->getPost('userid');
+        $productid = $this->request->getPost('productid');
+
+        $response = $pop->removeItem($userid, $productid);
+
+        return $response;
+    }
 }

@@ -183,7 +183,9 @@ nav ul li button:hover{
 }
 .remove{
     height: 30px;
-    width: 30px;
+    background-color: rgb(194, 194, 194);
+    border-radius: 2px;
+    
 }
 .remove:hover{
     cursor: pointer;
