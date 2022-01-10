@@ -12,7 +12,7 @@ class Items extends BaseController
         $fetch = new ItemModel();
         $userid = $this->request->getPost('userid');
 
-        $result = $fetch->fetchCart($userid);
+        $result['data'] = $fetch->fetchCart($userid);
 
         return $this->response->setJson($result);
     }

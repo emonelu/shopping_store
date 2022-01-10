@@ -18,14 +18,27 @@ class APIModel extends Model
 
         return $row;
     }
+    public function token_generator()
+    {
+    }
     public function addapiUser($username, $key)
     {
 
         $db = db_connect();
 
-        $result = $db->query("INSERT INTO tbl_apiusers (username,user_key)VALUES('$username','$key')");
+        $result = $db->query("INSERT INTO tbl_apiusers OUTPUT Inserted.apiuser_id (username,user_key)VALUES('$username','$key')");
 
-        if ($result) {
+        if ($result->getRowArray()) {
+
+            $str_result = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+            $rand_token =  substr(
+                str_shuffle($str_result),
+                0,
+                16
+            );
+
+
+            $generate = $db->query("INSERT INTO tbl_apitokens (apiuser_id,api_token) VALUES('$','$rand_token')");
             return 1;
         } else {
             return $result;

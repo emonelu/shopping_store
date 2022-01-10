@@ -113,11 +113,9 @@
 				};
 				$.ajax({
 					url: "<?php echo base_url('Items/fetchCart') ?>",
-					method: 'POST',
+					method: 'post',
 					data: data,
 					success: function(response) {
-						cart = response;
-						//TODO you need  to find a way to loop through the elemets in an object
 						$.each(cart, function(key, value) {
 							$("#cart-body").append(
 								'<div class="cart-item"><div id="cart-image-container"><img id="cart-image" src="' + cart.items.product_image + '"></div><div id="cart-data"><p><b>' + cart.items.product_name + '</b></p><p>Ksh &nbsp' + cart.items.unit_price + '.00</p><span class="iconify remove" data-icon="fontisto:shopping-basket-remove" id="delete-cart-item" title="Remove item from Cart"></span></div><hr></div>'
