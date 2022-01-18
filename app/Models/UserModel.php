@@ -17,6 +17,16 @@ class UserModel extends Model
 
         return $row;
     }
+    public function checkAdminCreds($email, $password)
+    {
+        $db = db_connect();
+
+        $result = $db->query("SELECT* FROM tbl_users WHERE email='$email' AND password='$password' AND role=3");
+
+        $row = $result->getRowArray();
+
+        return $row;
+    }
     public function addUser($firstname, $lastname, $email, $password, $gender)
     {
 
