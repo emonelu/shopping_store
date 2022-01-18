@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200;400;500&display=swap');
+
+*{
+    border: none;
+    margin: 0;
+    box-sizing: border-box;
+    color: rgb(68, 68, 68);
+    font-family: 'Source Sans 3', sans-serif;
+}
+header{
+    width: 100vw;
+    height: 10vh;
+    padding: 20px;
+}
+header a{
+    text-transform: uppercase;
+    font-size: 30px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.tabbed-content{
+    padding: 10px;
+    position: absolute;
+    left: 15vw;
+    top: 25vh;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    width: 65vw;
+    height: 57vh;
+}
+#tabs{
+    width: 100%;
+    display: flex;
+    background-color: rgb(156, 156, 156);
+    border-radius: 5px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+}
+#tabs span{
+    margin-left: 50px;
+    font-size: 20px;
+    color: rgb(236, 236, 236);
+    transition: ease 0.4s;
+
+}
+#tabs span:hover,.tabs-active:hover{
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+}
+.tabs-active{
+    color:brown;
+    font-size: 20px;
+    margin-left: 50px;
+}
+.tabs-content{
+    margin-top: 10px;
+    height: 90%;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}
+.empty{
+    position: absolute;
+    top: 49%;
+    left: 34%;
+    font-size: 30px;
+}  
+#checkout-items{
+    margin-top: 50px;
+    max-height: 70% !important;
+    overflow-y: scroll;
+}
+.checkout-btn{
+    position: absolute;
+    bottom: 10%;
+    left: 34%;
+    width: 30%;
+    height: 50px;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    background-color: rgb(116, 116, 116);
+    color: white;
+    transition: ease 0.4s;
+    padding: 10px;
+
+}
+.checkout-btn:hover{
+    cursor: pointer;
+    background-color: rgb(99, 99, 99);
+}
+

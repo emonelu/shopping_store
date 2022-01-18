@@ -3,6 +3,9 @@
 namespace App\Controllers;
 
 use App\Models\ItemModel;
+use App\Models\UserModel;
+
+use PhpCsFixer\Fixer\FunctionNotation\FunctionDeclarationFixer;
 
 class Items extends BaseController
 {
@@ -25,5 +28,13 @@ class Items extends BaseController
         $response = $pop->removeItem($userid, $productid);
 
         return $response;
+    }
+    public function Wallet()
+    {
+        $user = $this->request->getPost('user');
+        $model = new UserModel();
+        $result = $model->Wallet($user);
+
+        return $this->response->setJSON($result);
     }
 }

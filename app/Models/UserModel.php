@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use PhpCsFixer\Fixer\FunctionNotation\FunctionDeclarationFixer;
 
 class UserModel extends Model
 {
@@ -31,5 +32,15 @@ class UserModel extends Model
         } else {
             return $result;
         }
+    }
+    public function Wallet($user)
+    {
+        $db = db_connect();
+
+        $res = $db->query("SELECT amount_available FROM tbl_wallet WHERE user_id=$user");
+
+        $row = $res->getRowArray();
+
+        return $row;
     }
 }
