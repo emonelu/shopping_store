@@ -77,7 +77,7 @@ class Auth extends BaseController
                 $name = $result['first_name'];
                 $userid = $result['user_id'];
                 $userdata = [
-                    'name' => $name,
+                    'admin' => $name,
                     'userid' => $userid
                 ];
                 $session = session();

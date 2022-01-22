@@ -12,4 +12,8 @@ class Admin extends BaseController
     {
         return view('Admin/login');
     }
+    public function admin()
+    {
+        return view('Admin/admin');
+    }
 }
