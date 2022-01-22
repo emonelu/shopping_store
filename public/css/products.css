@@ -1,0 +1,91 @@
+.content-col{
+    /* outline: red dotted 2px; */
+    width: 70%;
+    height: auto;
+    margin-left:250px ;
+    margin-top: 150px;
+    display: flex;
+}
+#banner-image{
+    margin-left: 250px;
+    margin-top: 100px;
+    width: 70%;
+    height: 40vh;
+    background-image: url('/images/products-banner.jpg');
+    background-position: center;
+    background-size: cover;
+}
+#filters{
+    position: inherit;
+    /* outline: yellow solid 2px; */
+    width: 200px;
+    height: 300px;
+    border-right: 1.4px solid rgba(136, 136, 136, 0.589);
+}
+#filters h5{
+    font-size: 25px;
+    margin-bottom: 50px;
+}
+#filters span{
+    text-decoration: none;
+    color: rgb(116, 116, 116);
+    margin-left: 10px;
+    margin-bottom:20px;
+    font-size: 20px;
+}
+#filters span:hover{
+    text-decoration: underline;
+}
+#products{
+    margin-left: 20px;
+    width: 100%;
+}
+#products-table{
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+}
+.product-card{
+    margin: 20px;
+    height: 400px;
+    width: 300px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 4%;
+    display: flex;
+    flex-direction: column;
+}
+.no-hover:hover{
+    text-decoration: none;
+    color: rgb(68, 68, 68);
+    cursor: default;
+}
+.card-image{
+    width: 90%;
+    height: 70%;
+    margin-left: 10px;
+}
+.card-image img{
+    max-width: 100%;
+    max-height: auto;
+}
+#buy-btn{
+    background-color: rgb(61, 61, 61);
+    color: white;
+    padding: 5px;
+    border-radius: 2px;
+    transition: ease 0.3s;
+}
+#buy-btn:hover{
+    background-color: rgb(133, 133, 133);
+    text-decoration: none;
+}
+#product-name{
+    font-size: 20px;
+    color: rgb(26, 26, 26);
+}
+#product-price{
+    font-size: 15px;
+    color: rgb(54, 54, 54);
+}

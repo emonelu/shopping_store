@@ -26,4 +26,20 @@ class Items extends BaseController
 
         return $response;
     }
+    public function fetchAllProducts()
+    {
+
+        $products = new ItemModel();
+        $result['products'] = $products->fetchAllProducts();
+
+        return $this->response->setJSON($result);
+    }
+    public function fetchFilteredProducts()
+    {
+        $products = new ItemModel();
+        $modifier = $this->request->getPost('gender');
+        $result['products'] = $products->fetchFilteredProducts($modifier);
+
+        return $this->response->setJSON($result);
+    }
 }

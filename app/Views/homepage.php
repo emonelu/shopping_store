@@ -6,19 +6,19 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Homepage</title>
-	<link rel="stylesheet" href="css/homepage.css">
+	<link rel="stylesheet" href="/css/homepage.css">
 </head>
 
 <body>
+	<div id="top"></div>
 	<header>
 
 		<nav>
 			<div>
-				<h1>Mihai Clothing Co.</h1>
+				<a href="<?php echo site_url('Home') ?>">Mihai Clothing Co.</a>
 			</div>
 			<ul>
-				<li> <a href="">About</a></li>
-				<li><span class="span-link" id="categories-hoverable" href="">Categories</span> </li>
+				<li> <a href="#text">About</a></li>
 				<li><span id="cart-open">Cart</span></li>
 				<li><?php
 					$session = session();
@@ -40,15 +40,26 @@
 			<p>Introducing</p>
 			<p>THE OFFICIAL COLLECTION</p>
 			<p>A colection of new official wear that is as a result of the new Official Wear partnerships forged between us and Le Suit.</p>
-			<a href="">Buy Now</a>
-			<a href="">About Us</a>
-		</div>
-		<div class="categories">
-			<a href="">Men</a>
-			<a href="">Women</a>
-			<a href="">Children</a>
+			<a href="<?php echo site_url('Home/products') ?>">Shop Now</a>
+			<a href="#text">About Us</a>
 		</div>
 	</section>
+	<section class="below">
+		<div class="content-container">
+			<div id="text">
+				<p>Our goal is for our brand name to be synonymus with style.</p>
+				<p>Our partners and designers conduct styling with passion and a feel that only true love for fashion can foster. Every seam, hem and button is set with utmost care and delicacy</p>
+				<p>Elegance is Refusal <br> ~Coco Chanel</p>
+			</div>
+			<div id="image"></div>
+		</div>
+	</section>
+	<section class="footer">
+		<footer>
+			<h1>Mihai Clothing Co</h1>
+		</footer>
+	</section>
+
 	<input id="userid" value="<?php $session = session();
 								echo ($session->get('userid')); ?>" type="hidden">
 	<div class="cart-sidebar">

@@ -26,4 +26,20 @@ class ItemModel extends Model
 
 		return $result;
 	}
+	public function fetchAllProducts()
+	{
+		$db = db_connect();
+
+		$status = $db->query("SELECT * FROM tbl_products");
+
+		return $status->getResultArray();
+	}
+	public function fetchFilteredCatalog($modifier)
+	{
+		$db = db_connect();
+
+		$status = $db->query("SELECT * FROM tbl_products WHERE gender ='$modifier'");
+
+		return $status->getResultArray();
+	}
 }
