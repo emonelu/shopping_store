@@ -186,46 +186,21 @@
         }
         fetchAllProducts()
 
-        function fetchFilteredProducts() {
-            var data = {
-                'gender': modifier
-            }
-
-            $.ajax({
-                url: "<?php echo base_url('Items/fetchFilteredProducts') ?>",
-                method: 'POST',
-                data: data,
-                success: function(response) {
-                    $.each(response.catalog, function(key, value) {
-
-                        $(".cards-container").append(
-                            "<div class='tabs-card'><img  src='" + value.product_image +
-                            "'><div><p class='product_name' >" + value.product_name + "</p><p>Kes &nbsp" +
-                            value.unit_price + "<br><br><button data-price='" + value.unit_price + "'id='purchase' class='cards-button' data-id='" + value.product_id + "'>Buy Now</button></div></div>"
-                        )
-
-                    })
-                }
-            })
-        }
 
         $('#male').click(function(e) {
-            $('#modifier').val('male')
-            modifier = $('#modifier').val()
+            modifier = 'male'
             $("#products-table").html('')
             fetchFilteredProducts();
 
         });
         $('#female').click(function(e) {
-            $('#modifier').val('female')
-            modifier = $('#modifier').val()
+            modifier = 'female'
             $("#products-table").html('')
             fetchFilteredProducts();
 
         });
         $('#kids').click(function(e) {
-            $('#modifier').val('kid')
-            modifier = $('#modifier').val()
+            modifier = 'kid'
             $("#products-table").html('')
             fetchFilteredProducts();
 
@@ -235,6 +210,27 @@
             fetchAllProducts();
 
         });
+
+        function fetchFilteredProducts() {
+            var data = {
+                'gender': modifier
+            }
+            $.ajax({
+                url: "<?php echo base_url('Items/fetchFilteredProducts') ?>",
+                method: 'POST',
+                data: data,
+                success: function(response) {
+                    $.each(response.products, function(key, value) {
+
+                        $("#products-table").append(
+                            "<div class='product-card'><div class='card-image'><img  src='" + value.product_image +
+                            "'></div><div class='card-details'><span class='no-hover' id='product-name'>" + value.product_name + "</span><br><br><span class='no-hover' id='product-price'>Ksh &nbsp" + value.unit_price + ".00</span><br><br><span data-id='" + value.product_id + "' id='buy-btn'>Buy Now</span></div></div>"
+                        )
+
+                    })
+                }
+            })
+        }
 
     })
 </script>

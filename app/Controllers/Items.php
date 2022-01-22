@@ -36,9 +36,10 @@ class Items extends BaseController
     }
     public function fetchFilteredProducts()
     {
-        $products = new ItemModel();
+        $filtered = new ItemModel();
         $modifier = $this->request->getPost('gender');
-        $result['products'] = $products->fetchFilteredProducts($modifier);
+
+        $result['products'] = $filtered->fetchFilteredProducts($modifier);
 
         return $this->response->setJSON($result);
     }

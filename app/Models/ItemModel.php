@@ -34,7 +34,7 @@ class ItemModel extends Model
 
 		return $status->getResultArray();
 	}
-	public function fetchFilteredCatalog($modifier)
+	public function fetchFilteredProducts($modifier)
 	{
 		$db = db_connect();
 
