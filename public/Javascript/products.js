@@ -35,14 +35,9 @@ $('#visa-span').click(function () {
 });
 $('#bitcoin-span').click(function () { 
     $('#visa-details').css('display','none')
-    $('#bitcoin-details').css('display','flex')  
+    $('#bitcoin-details').css('display','block')  
     $('#card-details').css('display','none')   
 
 });
-$('#card-span').click(function () { 
-    $('#visa-details').css('display','none')
-    $('#bitcoin-details').css('display','none')  
-    $('#card-details').css('display','flex')   
 
-});
     });

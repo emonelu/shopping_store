@@ -103,6 +103,17 @@
 		$(document).ready(function() {
 			fetchCart()
 
+			$('#checkout').click(function() {
+				$.ajax({
+					url: "<?php echo base_url('Auth/logout') ?>",
+					method: 'post',
+					success: function(response) {
+						window.location.reload();
+					}
+				})
+
+				window.location.replace('<?php echo base_url('Home/checkout') ?>')
+			})
 			$('#login-button').click(function() {
 				window.location.replace('<?php echo base_url('Auth/index') ?>')
 			})

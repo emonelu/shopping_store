@@ -16,4 +16,8 @@ class Home extends BaseController
     {
         return view('products');
     }
+    public function checkout()
+    {
+        return view('checkout');
+    }
 }
