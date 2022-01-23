@@ -41,7 +41,7 @@ class Auth extends BaseController
     }
     public function APILogin()
     {
-        //fetch the email and password from POST data
+
         $username = $this->request->getPost('username');
         $key = $this->request->getPost('key');
         $model = new APIModel();

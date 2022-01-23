@@ -18,9 +18,7 @@ class APIModel extends Model
 
         return $row;
     }
-    public function token_generator()
-    {
-    }
+
     public function addapiUser($username, $key)
     {
 
@@ -45,21 +43,6 @@ class APIModel extends Model
         }
     }
 
-
-    public function token_validator($token)
-    {
-        $db = db_connect();
-        $error = 'Token is Invalid or does not exist';
-
-        $valid = $db->query("SELECT * FROM tbl_apitokens WHERE api_token='$token'");
-
-
-        if (count($this->response->getArray($valid)) == 1) {
-            return TRUE;
-        } else {
-            return FALSE;
-        }
-    }
     public function getToken($apiuserid)
     {
         $db = db_connect();
