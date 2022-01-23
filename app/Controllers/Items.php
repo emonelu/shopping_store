@@ -43,4 +43,23 @@ class Items extends BaseController
 
         return $this->response->setJSON($result);
     }
+    public function addToCart()
+    {
+        $product = $this->request->getPost('productid');
+        $customer = $this->request->getPost('customer');
+
+        $newOrder = new ItemModel();
+        if ($newOrder->checkproduct($product, $customer) == 'okay') {
+            $result = $newOrder->order($product, $customer);
+            try {
+                if ($result) {
+                    echo 1;
+                }
+            } catch (\Throwable $th) {
+                echo $th->getMessage();
+            }
+        } else {
+            echo 'duplicate';
+        }
+    }
 }

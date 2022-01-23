@@ -15,7 +15,7 @@
 
 		<nav>
 			<div>
-				<a href="<?php echo site_url('Home') ?>">Mihai Clothing Co.</a>
+				<a href="#top">Mihai Clothing Co.</a>
 			</div>
 			<ul>
 				<li> <a href="#text">About</a></li>

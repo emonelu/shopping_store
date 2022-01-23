@@ -22,7 +22,7 @@ class ItemModel extends Model
 
 		$db = db_connect();
 
-		$result = $db->query("");
+		$result = $db->query("DELETE FROM tbl_cart WHERE user_id='$userid' AND product_id='$product_id'");
 
 		return $result;
 	}
@@ -41,5 +41,25 @@ class ItemModel extends Model
 		$status = $db->query("SELECT * FROM tbl_products WHERE gender ='$modifier'");
 
 		return $status->getResultArray();
+	}
+	public function checkproduct($product, $customer)
+	{
+		$db = db_connect();
+
+		$status = $db->query("SELECT * FROM tbl_cart WHERE product_id='$product' AND user_id='$customer'");
+		$row = $status->getResultArray();
+
+		if (count($row)) {
+			return count($row);
+		} else {
+			return 'okay';
+		}
+	}
+	public function order($product, $customer)
+
+	{
+		$db = db_connect();
+		$status = $db->query("INSERT INTO tbl_cart (user_id,product_id)VALUES('$customer','$product')");
+		return $status;
 	}
 }

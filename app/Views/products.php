@@ -16,7 +16,7 @@
 
         <nav>
             <div>
-                <a href="#top">Mihai Clothing Co.</a>
+                <a href="<?php echo site_url('Home') ?>">Mihai Clothing Co.</a>
             </div>
             <ul>
                 <li><span id="cart-open">Cart</span></li>
@@ -130,8 +130,10 @@
                 method: 'post',
                 data: user_data,
                 success: function(result) {
+                    $('#cart-body').html('')
                     $.each(result, function(key, value) {
                         $.each(this, function(key, value) {
+
                             $("#cart-body").append(
                                 '<div class="cart-item"><div id="cart-image-container"><img id="cart-image" src="' + this.product_image + '"></div><div id="cart-data"><p><b>' + this.product_name + '</b></p><p>Ksh &nbsp' + this.unit_price + '.00</p><button class=" remove" data-id=' + this.product_id + ' id="remove-cart" title="Remove item from Cart">Remove</button></div><hr></div>'
                             )
@@ -140,17 +142,17 @@
                     })
                     $('#total').html('');
 
-                    $('#total').html('Ksh&nbsp' + total_cost.toLocaleString('en') + '.00');
+                    $('#total').html('Ksh&nbsp' + total_cost + '.00');
 
                 }
             })
         }
-
-        function removeItem(product_id) {
+        $('#remove-cart').click(function() {
             var data = {
                 'userid': $('#userid').val(),
-                'product_id': product_id
+                'product_id': $(this).data('id')
             };
+            console.log(data);
             $.ajax({
                 url: "<?php echo base_url('Items/removeItem') ?>",
                 method: 'post',
@@ -165,7 +167,7 @@
 
                 }
             })
-        }
+        });
 
         function fetchAllProducts() {
 
@@ -224,13 +226,39 @@
 
                         $("#products-table").append(
                             "<div class='product-card'><div class='card-image'><img  src='" + value.product_image +
-                            "'></div><div class='card-details'><span class='no-hover' id='product-name'>" + value.product_name + "</span><br><br><span class='no-hover' id='product-price'>Ksh &nbsp" + value.unit_price + ".00</span><br><br><span data-id='" + value.product_id + "' id='buy-btn'>Buy Now</span></div></div>"
+                            "'></div><div class='card-details'><span class='no-hover' id='product-name'>" + value.product_name + "</span><br><br><span class='no-hover' id='product-price'>Ksh &nbsp" + value.unit_price + ".00</span><br><br><span data-price='" + value.unit_price + "' data-id='" + value.product_id + "' id='buy-btn'>Buy Now</span></div></div>"
                         )
 
                     })
                 }
             })
         }
+
+        $(document).on('click', '#buy-btn', function() {
+            var details = {
+                'productid': $(this).data('id'),
+                'customer': $('#userid').val(),
+                'product_name': $(this).parent().parent().find('#product-name').html()
+            };
+            console.log(details);
+            $.ajax({
+                url: "<?php echo base_url('Items/addtoCart') ?>",
+                method: 'post',
+                data: details,
+                success: function(result) {
+                    if (result == 1) {
+                        alert('Product Added to Cart');
+                    } else if (result == 'duplicate') {
+                        alert('This item has already been added to the cart');
+                    } else {
+                        console.log(result)
+                        alert('an unexpected error has been encountered');
+                    }
+
+                }
+            })
+            fetchCart();
+        })
 
     })
 </script>
