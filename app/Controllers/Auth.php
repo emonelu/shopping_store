@@ -11,7 +11,6 @@ class Auth extends BaseController
     {
         return view('auth/login.php');
     }
-
     public function login()
     {
         //fetch the email and password from POST data
@@ -63,6 +62,31 @@ class Auth extends BaseController
             }
         } catch (\Throwable $th) {
             echo $th;
+        }
+    }
+    public function Adminlogin()
+    {
+        $email = $this->request->getPost('email');
+        $password = $this->request->getPost('password');
+        $userModel = new UserModel();
+        $result = $userModel->checkAdminCreds($email, $password);
+
+        try {
+            if (count($result) > 0) {
+                $name = $result['first_name'];
+                $userid = $result['user_id'];
+                $userdata = [
+                    'admin' => $name,
+                    'userid' => $userid
+                ];
+                $session = session();
+                $session->set($userdata);
+                echo 1;
+            } else {
+                echo 2;
+            }
+        } catch (\Throwable $th) {
+            echo 3;
         }
     }
     public function register()
