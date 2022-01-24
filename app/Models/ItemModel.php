@@ -26,7 +26,7 @@ class ItemModel extends Model
 
 		return $result;
 	}
-	public function displayCatalog()
+	public function fetchAllProducts()
 	{
 		$db = db_connect();
 
@@ -42,7 +42,7 @@ class ItemModel extends Model
 
 		return $status->getResultArray();
 	}
-	public function displayFilteredCatalog($modifier)
+	public function fetchFilteredProducts($modifier)
 	{
 		$db = db_connect();
 
@@ -188,7 +188,7 @@ class ItemModel extends Model
 			return 'okay';
 		}
 	}
-	public function order($product, $customer, $item_price)
+	public function order($product, $customer)
 
 	{
 		$db = db_connect();

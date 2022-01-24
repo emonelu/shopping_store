@@ -59,7 +59,6 @@
     </section>
     <input id="userid" value="<?php $session = session();
                                 echo ($session->get('userid')); ?>" type="hidden">
-    <input type="hidden" id="filter" value="">
     <div class="cart-sidebar">
         <div id="cart-title">
             <p>YOUR CART</p>
