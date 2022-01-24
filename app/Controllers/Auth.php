@@ -41,7 +41,6 @@ class Auth extends BaseController
     }
     public function APILogin()
     {
-        //fetch the email and password from POST data
         $username = $this->request->getPost('username');
         $key = $this->request->getPost('key');
         $model = new APIModel();
@@ -54,7 +53,7 @@ class Auth extends BaseController
                 $token = $model->getToken($apiuserid);
                 $apiuserdata = [
                     'api-user' => $name,
-                    'token' => $token
+                    'token' => $token[0]->api_token
                 ];
                 $session = session();
                 $session->set($apiuserdata);
@@ -82,6 +81,12 @@ class Auth extends BaseController
         $handler = new APIModel();
 
         $result = $handler->addapiUser($username, $key);
+        if ($result) {
+            echo 1;
+        } else {
+            echo 2;
+        }
+
 
         return $result;
     }

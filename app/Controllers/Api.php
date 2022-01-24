@@ -3,74 +3,93 @@
 namespace App\Controllers;
 
 use App\Models\APIModel;
-use CodeIgniter\API\ResponseTrait;
-use CodeIgniter\RESTful\ResourceController;
 
 class Api extends BaseController
 {
-    public function index()
+    function index()
     {
         return view('API/api_home');
     }
-    public function token_tester()
+
+    function tokenValidation($token)
+    {
+        $model = new APIModel();
+
+        $result = $model->tokenValidation($token);
+
+        return $result;
+    }
+    function usersList()
     {
         $model = new APIModel();
         $token = $this->request->getVar('token');
 
-        $result = $model->token_validator($token);
+
+        if ($this->tokenValidation($token)) {
+            $result = $model->fetchUsersList($token);
+        } else {
+            $result = 'Token is Invalid or does not exist';
+        }
 
         return $this->response->setJson($result);
     }
-
-    public function usersList()
-    {
-        $model = new APIModel();
-        $token = $this->request->getVar('token');
-
-        $result = $model->fetchUsersList($token);
-
-        return $this->response->setJson($result);
-    }
-    public function usersListEmail()
+    function usersListEmail()
     {
         $email = $this->request->getVar('email');
         $token = $this->request->getVar('token');
         $model = new APIModel();
 
-        $result = $model->fetchUsersListEmail($token, $email);
-
+        if ($this->tokenValidation($token)) {
+            $result = $model->fetchUsersListEmail($email);
+        } else {
+            $result = 'Token is Invalid or does not exist';
+        }
         return $this->response->setJson($result);
     }
-    public function usersListGender()
+    function usersListGender()
     {
         $gender = $this->request->getVar('gender');
         $token = $this->request->getVar('token');
         $model = new APIModel();
 
-        $result = $model->fetchUsersListGender($token, $gender);
+        if ($this->tokenValidation($token)) {
+
+            $result = $model->fetchUsersListGender($gender);
+        } else {
+            $result = 'Token is Invalid or does not exist';
+        }
 
         return $this->response->setJson($result);
     }
-    public function usersListItemBought()
+    function usersListItemBought()
     {
         $item_id = $this->request->getVar('gender');
         $token = $this->request->getVar('token');
         $model = new APIModel();
+        if ($this->tokenValidation($token)) {
 
-        $result = $model->fetchUsersListGender($token, $item_id);
+            $result = $model->fetchUsersListGender($item_id);
+        } else {
+            $result = 'Token is Invalid or does not exist';
+        }
 
         return $this->response->setJson($result);
     }
-    public function usersListAge()
+    function usersListAge()
     {
         $model = new APIModel();
         $token = $this->request->getVar('token');
 
-        $result = $model->fetchUsersListAge($token);
+        if ($this->tokenValidation($token)) {
+
+            $result = $model->fetchUsersListAge();
+        } else {
+            $result = 'Token is Invalid or does not exist';
+        }
 
         return $this->response->setJson($result);
     }
-    public function productList()
+    function productList()
     {
         $model = new APIModel();
 
@@ -78,7 +97,7 @@ class Api extends BaseController
 
         return $this->response->setJson($result);
     }
-    public function productListID()
+    function productListID()
     {
         $id = $this->request->getVar('id');
         $model = new APIModel();
@@ -87,7 +106,7 @@ class Api extends BaseController
 
         return $this->response->setJson($result);
     }
-    public function productListCAT()
+    function productListCAT()
     {
         $category = $this->request->getVar('category');
         $model = new APIModel();

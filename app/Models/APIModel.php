@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class APIModel extends Model
 {
 
-    public function auth($username, $key)
+    function auth($username, $key)
     {
 
         $db = db_connect();
@@ -18,134 +18,93 @@ class APIModel extends Model
 
         return $row;
     }
-    public function token_generator()
-    {
-    }
-    public function addapiUser($username, $key)
+
+    function addapiUser($username, $key)
     {
 
         $db = db_connect();
 
-        $result = $db->query("INSERT INTO tbl_apiusers OUTPUT Inserted.apiuser_id (username,user_key)VALUES('$username','$key')");
+        $result = $db->query("INSERT INTO tbl_apiusers (username,user_key)VALUES('$username','$key')");
 
-        if ($result->getRowArray()) {
-
-            $str_result = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-            $rand_token =  substr(
-                str_shuffle($str_result),
-                0,
-                16
-            );
-
-
-            $generate = $db->query("INSERT INTO tbl_apitokens (apiuser_id,api_token) VALUES('$','$rand_token')");
-            return 1;
-        } else {
-            return $result;
-        }
+        return $result;
     }
 
 
-    public function token_validator($token)
+    function tokenValidation($token)
     {
         $db = db_connect();
-        $error = 'Token is Invalid or does not exist';
 
         $valid = $db->query("SELECT * FROM tbl_apitokens WHERE api_token='$token'");
 
+        $row = $valid->getRowArray();
 
-        if (count($this->response->getArray($valid)) == 1) {
-            return TRUE;
-        } else {
-            return FALSE;
+        try {
+            if (count($row) > 1) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (\Throwable $th) {
+            return false;
         }
     }
-    public function getToken($apiuserid)
+    function getToken($apiuserid)
     {
         $db = db_connect();
-        $error = 'Token is Invalid or does not exist';
 
         $result = $db->query("SELECT * FROM tbl_apitokens WHERE api_userid ='$apiuserid'");
 
+        $str_result = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+        $generated_token = substr(
+            str_shuffle($str_result),
+            0,
+            16
+        );
+
         if (count($result->getResultArray()) < 1) {
-            return $error;
+            $result = $db->query("INSERT INTO tbl_apitokens (api_userid,api_token)VALUES('$apiuserid','$generated_token')");
+            $result = $db->query("SELECT * FROM tbl_apitokens WHERE api_userid ='$apiuserid'");
+            return $result->getFirstRow();
         } else {
-            return $this->response->getArray($result);
+            return $result->getResult();
         }
     }
-    public function fetchUsersList($token)
+    function fetchUsersList()
     {
 
         $db = db_connect();
-        $error = 'Token is Invalid or does not exist';
 
-        $validation = $db->query("SELECT * FROM tbl_apitokens WHERE api_token='$token' ");
+        $result = $db->query("SELECT * FROM tbl_users");
 
-        if (count($this->response->getArray($validation)) == 1) {
-            $result = $db->query("SELECT * FROM tbl_users");
-
-            return $result->getResult();
-        } else {
-            return $error;
-        }
+        return $result->getResult();
     }
-    public function fetchUsersListEmail($token, $email)
+    function fetchUsersListEmail($email)
     {
         $db = db_connect();
-        $error = 'Token is Invalid or does not exist';
+        $result = $db->query("SELECT * FROM tbl_users WHERE email='$email'");
 
-        $validation = $db->query("SELECT * FROM tbl_apitokens WHERE api_token='$token' ");
-
-        if (count($this->response->getArray($validation)) == 1) {
-
-            $result = $db->query("SELECT * FROM tbl_users WHERE email='$email'");
-
-            return $result->getResult();
-        } else {
-            return $error;
-        }
+        return $result->getResult();
     }
-    public function fetchUsersListGender($token, $gender)
+    function fetchUsersListGender($gender)
     {
         $db = db_connect();
-        $error = 'Token is Invalid or does not exist';
 
-        $validation = $db->query("SELECT * FROM tbl_apitokens WHERE api_token='$token' ");
+        $result = $db->query("SELECT * FROM tbl_users WHERE gender='$gender'");
 
-        if (count($this->response->getArray($validation)) == 1) {
-
-            $result = $db->query("SELECT * FROM tbl_users WHERE gender='$gender'");
-
-            return $result->getResult();
-        } else {
-            return $error;
-        }
+        return $result->getResult();
     }
-    // public function fetchUsersListItemBought($token,$item_id)
-    // {
-    //     $db = db_connect();
 
-    //     $result = $db->query("SELECT * FROM tbl_users WHERE ='$item_id'");
-
-    //     return $result->getResult();
-    // }
-    public function fetchUsersListAge($token)
+    function fetchUsersListAge()
     {
         $db = db_connect();
-        $error = 'Token is Invalid or does not exist';
 
-        $validation = $db->query("SELECT * FROM tbl_apitokens WHERE api_token='$token' ");
 
-        if (count($this->response->getArray($validation)) == 1) {
 
-            $result = $db->query("SELECT * FROM tbl_users  ORDER BY age DESC");
+        $result = $db->query("SELECT * FROM tbl_users  ORDER BY age DESC");
 
-            return $result->getResult();
-        } else {
-            return $error;
-        }
+        return $result->getResult();
     }
-    public function fetchProductList()
+    function fetchProductList()
     {
         $db = db_connect();
 
@@ -153,7 +112,7 @@ class APIModel extends Model
 
         return $result->getResult();
     }
-    public function fetchProductListbyAdder($id)
+    function fetchProductListbyAdder($id)
     {
         $db = db_connect();
 
@@ -161,7 +120,7 @@ class APIModel extends Model
 
         return $result->getResult();
     }
-    public function fetchProductListbyCategory($category)
+    function fetchProductListbyCategory($category)
     {
         $db = db_connect();
 

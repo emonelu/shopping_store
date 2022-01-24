@@ -38,7 +38,7 @@
                                 if ($session->get('api-user') == "") {
                                     echo 'Please Login or Register to show your token';
                                 } else {
-                                    echo $session->get('token');
+                                    print_r($session->get('token'));
                                 }
                                 ?></span>
     </div>
@@ -80,49 +80,49 @@
                             <br>
                             Expected Parameters:
                         </td>
-                        <td><span title="Copy and Paste in API platform">https://localhost:8080/Api/usersList</span><br>None</td>
+                        <td><span title="Copy and Paste in API platform">http://localhost:8080/Api/usersList</span><br>None</td>
                     </tr>
                     <tr>
                         <td>Fetch All Platform Users Filtered by Gender
                             <br>
                             Expected Parameters:
                         </td>
-                        <td><span title="Copy and Paste in API platform">https://localhost:8080/Api/usersListGender</span><br>String ('male' or 'female')</td>
+                        <td><span title="Copy and Paste in API platform">http://localhost:8080/Api/usersListGender</span><br>String ('male' or 'female')</td>
                     </tr>
                     <tr>
                         <td>Fetch User Data with on Email
                             <br>
                             Expected Parameters:
                         </td>
-                        <td><span title="Copy and Paste in API platform">https://localhost:8080/Api/usersListEmail</span><br>String (Valid Email Address called email)</td>
+                        <td><span title="Copy and Paste in API platform">http://localhost:8080/Api/usersListEmail</span><br>String (Valid Email Address called email)</td>
                     </tr>
                     <tr>
                         <td>Fetch User Data based on Item Purchased
                             <br>
                             Expected Parameters:
                         </td>
-                        <td><span title="Copy and Paste in API platform">https://localhost:8080/Api/usersListItemBought</span><br>Item ID (INT)</td>
+                        <td><span title="Copy and Paste in API platform">http://localhost:8080/Api/usersListItemBought</span><br>Item ID (INT)</td>
                     </tr>
                     <tr>
                         <td>Returns a filtered list of users based on age (descending)
                             <br>
                             Expected Parameters:
                         </td>
-                        <td><span title="Copy and Paste in API platform">https://localhost:8080/Api/usersListAge</span><br>None</td>
+                        <td><span title="Copy and Paste in API platform">http://localhost:8080/Api/usersListAge</span><br>None</td>
                     </tr>
                     <tr>
                         <td>Fetch All Transactions
                             <br>
                             Expected Parameters:
                         </td>
-                        <td><span title="Copy and Paste in API platform">https://localhost:8080/Api/transactionList</span><br>None</td>
+                        <td><span title="Copy and Paste in API platform">http://localhost:8080/Api/transactionList</span><br>None</td>
                     </tr>
                     <tr>
                         <td>Fetch All Transactions by Item Category
                             <br>
                             Expected Parameters:
                         </td>
-                        <td><span title="Copy and Paste in API platform">https://localhost:8080/Api/usersList</span><br>Category ID (INT)</td>
+                        <td><span title="Copy and Paste in API platform">http://localhost:8080/Api/usersList</span><br>Category ID (INT)</td>
                     </tr>
                 </table>
             </div>
@@ -134,25 +134,27 @@
                             <br>
                             Expected Parameters:
                         </td>
-                        <td><span title="Copy and Paste in API platform">https://localhost:8080/Api/productList</span><br>None</td>
+                        <td><span title="Copy and Paste in API platform">http://localhost:8080/Api/productList</span><br>None</td>
                     </tr>
                     <tr>
                         <td>
                             Fetch Product info based on adder <br> Expcted Parameters:
                         </td>
-                        <td><span title="Copy and Paste in API platform">https://localhost:8080/Api/productListID</span><br>Adder Id(INT): eg: 3 <br> Token</td>
+                        <td><span title="Copy and Paste in API platform">http://localhost:8080/Api/productListID</span><br>Adder Id(INT): eg: 3 <br> Token</td>
                     </tr>
                     <tr>
                         <td>
                             Fetch Product info by product id <br> Expcted Parameters:
                         </td>
-                        <td><span title="Copy and Paste in API platform">https://localhost:8080/Api/ productListCAT</span><br>Product Id(INT): eg: 1</td>
+                        <td><span title="Copy and Paste in API platform">http://localhost:8080/Api/ productListCAT</span><br>Product Id(INT): eg: 1</td>
                     </tr>
                 </table>
             </div>
         </div>
 
     </section>
+    <input id="api-user" value="<?php $session = session();
+                                echo ($session->get('api-user')); ?>" type="hidden">
 
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -193,6 +195,16 @@
                     }
                 }
             });
+        })
+        $('#logout-button').click(function() {
+
+            $.ajax({
+                url: "<?php echo base_url('Auth/logout') ?>",
+                method: 'post',
+                success: function(response) {
+                    window.location.reload();
+                }
+            })
         })
         $('#register').click(function() {
             var details = {
