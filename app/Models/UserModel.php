@@ -17,7 +17,7 @@ class UserModel extends Model
 
         return $row;
     }
-    public function checkAdminCreds($email, $password)
+    public function checkadmin($email, $password)
     {
         $db = db_connect();
 
@@ -41,5 +41,12 @@ class UserModel extends Model
         } else {
             return $result;
         }
+    }
+    public function displayUsers()
+    {
+        $db = db_connect();
+
+        $res = $db->query('SELECT * FROM tbl_users ORDER BY user_id DESC');
+        return $res->getResultArray();
     }
 }
