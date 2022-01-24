@@ -98,8 +98,6 @@ class APIModel extends Model
     {
         $db = db_connect();
 
-
-
         $result = $db->query("SELECT * FROM tbl_users  ORDER BY age DESC");
 
         return $result->getResult();
