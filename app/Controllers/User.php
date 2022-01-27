@@ -10,7 +10,7 @@ class User extends BaseController
     public function getUser()
     {
         $model = new UserModel();
-        $id = $this->request->getPost('id');
+        $id = $this->request->getPost('user_id');
 
         $result['records'] = $model->getUser($id);
 
@@ -18,7 +18,7 @@ class User extends BaseController
     }
     public function getWalletbalance()
     {
-        $customer_id = $this->request->getPost('customer_id');
+        $customer_id = $this->request->getPost('userid');
         $model = new UserModel();
         $result = $model->getWalletbalance($customer_id);
 
@@ -26,7 +26,7 @@ class User extends BaseController
     }
     public function updateWalletbalance()
     {
-        $customer_id = $this->request->getPost('customer_id');
+        $customer_id = $this->request->getPost('userid');
         $amount_available = $this->request->getPost('amount_available');
 
         $model = new UserModel();

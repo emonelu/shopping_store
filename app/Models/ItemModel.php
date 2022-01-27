@@ -242,7 +242,7 @@ class ItemModel extends Model
 	public function displayPurchases($customer_id)
 	{
 		$db = db_connect();
-		$query = "SELECT * FROM tbl_orders WHERE customer_id = $customer_id ORDER BY order_id DESC";
+		$query = "SELECT * FROM tbl_purchases WHERE user_id = $customer_id";
 		$status = $db->query($query);
 
 
@@ -255,9 +255,25 @@ class ItemModel extends Model
 		$db = db_connect();
 		$query = "SELECT tbl_products.product_name,tbl_products.product_description,tbl_orderdetails.* FROM tbl_products RIGHT JOIN tbl_orderdetails ON tbl_products.product_id = tbl_orderdetails.product_id WHERE tbl_orderdetails.order_id = $order_id";
 		$status = $db->query($query);
-		// $status = $db->query($query);
 
 
 		return $status->getResultArray();
+	}
+	function recordPurchase($userid, $product_name, $unit_price)
+	{
+		$db = db_connect();
+
+		$query1 = ("INSERT INTO tbl_purchases(user_id,product_name,unit_price)VALUES('$userid','$product_name','$unit_price')");
+
+		$query2 = ("DELETE FROM tbl_cart WHERE user_id='$userid'");
+
+		$result = $db->query($query1);
+
+		if ($result) {
+			$delete = $db->query($query2);
+			return $delete;
+		} else {
+			return 'Error';
+		}
 	}
 }

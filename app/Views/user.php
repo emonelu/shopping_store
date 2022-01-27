@@ -8,6 +8,8 @@
     <title>My Info</title>
     <link rel="stylesheet" href="/css/profile.css">
     <link rel="stylesheet" href="/css/homepage.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
 
 </head>
 
@@ -39,6 +41,9 @@
             <span class="tabs" id="info">
                 My Info
             </span>
+            <span class="tabs" id="purchases">
+                My Past Purchases
+            </span>
             <span class="tabs" id="wallet">Wallet & Deposit</span>
         </div>
         <div class="content userinfo">
@@ -48,24 +53,32 @@
             <div id="user-content">
                 <div>
                     <label for="first_name">First Name</label>
-                    <input id="first_name" type="text">
+                    <span class="info-span" id="first_name"></span>
                     <label for="last_name">Last Name</label>
-                    <input id="last_name" type="text">
+                    <span class="info-span" id="last_name"></span>
                     <label for="email">Email</label>
-                    <input type="email" id="email">
-                </div>
-                <div>
-                    <label for="password">Password</label>
-                    <input type="password" id="password">
+                    <span class="info-span" id="email"></span>
                     <label for="gender">Gender</label>
-                    <select id="gender">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
-                    <span id="update">Update</span>
+                    <span class="info-span" id="gender"></span>
                 </div>
 
             </div>
+        </div>
+        <div class="content history hide" id="history-content">
+            <div class="message">
+                <h1>You have no Past Purchases</h1>
+            </div>
+            <table class=" hide table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Purchase ID</th>
+                        <th>Item Name</th>
+                        <th>Price</th>
+                        <th>Date Bought</th>
+                    </tr>
+                </thead>
+                <tbody id="purchases-table-body"></tbody>
+            </table>
         </div>
         <div class="content wallet">
             <div class="header-image">
@@ -74,7 +87,7 @@
 
             <div id="wallet-content">
                 <p>Your Balance: Ksh&nbsp;
-                    <span id="balance"></span>.00
+                    <span id="balance"></span>
                 </p>
                 <div>
                     <h3>Deposit Methods:</h3>
@@ -106,6 +119,8 @@
 <script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/Javascript/products.js"></script>
+<script src="/Javascript/index.js"></script>
+
 <?php include('Includes/js.php') ?>;
 
 </html>

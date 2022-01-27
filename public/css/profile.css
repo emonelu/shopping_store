@@ -119,4 +119,16 @@ max-width: 30%;
     color: #292929;
     cursor: pointer;
 }
-
+.hide{
+    display: none;
+}
+.block{
+    display: block;
+}
+.info-span{
+    background-color: #4d4d4d48;
+    width: 200px;
+    height: 40px;
+    color: rgb(0, 0, 0);
+    padding: 5px;
+}

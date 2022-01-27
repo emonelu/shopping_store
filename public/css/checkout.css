@@ -1,5 +1,6 @@
 .main-container{
     padding: 20px;
+    height: auto !important;
 }
 .main-container #title{
     text-align: center;
@@ -21,6 +22,42 @@
 nav{
     display: flex !important;
 }
-#checkout-content{
+.hide{
     display: none;
 }
+.after-table{
+    margin-top: 100px;
+    display: flex;
+}
+div button{
+    width: 300px;
+    padding: 10px;
+    background-color: rgb(31, 31, 31);
+    color: white;
+}
+div button:hover{
+    cursor: pointer;
+    background-color: rgb(61, 61, 61);
+}
+div span{
+    margin-left: 150px;
+    font-size: 30px;
+}
+.disabled-hover:hover{
+    cursor: not-allowed;
+}
+.funds-error{
+    position: relative;
+    width: 400px;
+    height:70px;
+    border-radius: 4px;    
+    left: 33%;
+    top:10px;
+}
+.funds-error p{
+    font-size: 20px !important;
+    text-align: center;
+    margin-top: 20%;
+    color: brown;
+}
+

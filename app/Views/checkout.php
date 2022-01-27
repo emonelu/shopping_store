@@ -36,13 +36,26 @@
     <div class="main-container">
         <p id="title">Checkout</p>
         <div class="error-message">No items to display</div>
-        <div id="checkout-content">
-            <table class="w3-table-all w3-card-4">
+        <div id="checkout-content hide">
+            <table class="checkout-table w3-table-all w3-card-4">
                 <th>Product Name</th>
                 <th>Product Description</th>
                 <th>Unit Price</th>
                 <tbody id="table-body"></tbody>
             </table>
+        </div>
+        <div class="after-table">
+            <button class="" id="order">Place Order</button>
+            <div>
+                <span><b>Total:</b><span id="total"></span></span>
+                <span><b>Wallet:</b><span id="wallet_balance"></span></span>
+                <span><b>Balance:</b><span id="calc-bal"></span></span>
+            </div>
+
+        </div>
+        <div class="funds-error hide ">
+            <p>Please <a href="<?php echo site_url('Home/user') ?>">make a deposit</a> to your Wallet to continue.
+            </p>
         </div>
     </div>
     <input id="userid" value="<?php $session = session();

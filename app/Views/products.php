@@ -102,6 +102,9 @@
 <script>
     $(document).ready(function() {
         fetchCart()
+        $('#checkout').click(function() {
+            window.location.replace('<?php echo base_url('Home/checkout') ?>')
+        })
 
         $('#login-button').click(function() {
             window.location.replace('<?php echo base_url('Auth/index') ?>')

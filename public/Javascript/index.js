@@ -30,10 +30,25 @@ $(document).ready(function() {
     })
     $('#categories-hoverable').click(function() {
         $('.categories').css('display', 'flex')
-
     })
     if($('#login_status').val()==1){
         $('#user_list').removeClass('user-disabled');
     }
+    $('#info').click(function() {
+        $('.history').addClass('hide')
+        $('.userinfo').removeClass('hide').addClass('block')
+        $('.wallet').addClass('hide')
+    })
+    $('#purchases').click(function() {
+        $('.history').removeClass('hide')
+        $('.userinfo').addClass('hide').removeClass('block')
+        $('.wallet').addClass('hide')
+    })
+    $('#wallet').click(function() {
+
+        $('.wallet').removeClass('hide')
+        $('.history').addClass('hide')
+        $('.info').addClass('hide').removeClass('block')
+    })
    
 })

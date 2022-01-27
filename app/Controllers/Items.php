@@ -62,4 +62,31 @@ class Items extends BaseController
             echo 'duplicate';
         }
     }
+    public function history()
+    {
+        $customer_id = $this->request->getPost('customer_id');
+        $model = new ItemModel;
+
+
+        $result['purchases'] = $model->displayPurchases($customer_id);
+
+
+        return $this->response->setJSON($result);
+    }
+    function purchase()
+    {
+        $userid = $this->request->getPost('userid');
+        $product_name = $this->request->getPost('product_name');
+        $unit_price = $this->request->getPost('unit_price');
+
+        $model = new ItemModel();
+
+        $result = $model->recordPurchase($userid, $product_name, $unit_price);
+
+        if ($result) {
+            echo 1;
+        } else {
+            return $result;
+        }
+    }
 }
