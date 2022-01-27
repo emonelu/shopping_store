@@ -121,6 +121,6 @@
 <script src="/Javascript/products.js"></script>
 <script src="/Javascript/index.js"></script>
 
-<?php include('Includes/js.php') ?>;
+<?php include('Includes/js.php') ?>
 
 </html>

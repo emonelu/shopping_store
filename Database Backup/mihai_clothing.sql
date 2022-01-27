@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2022 at 10:51 AM
+-- Generation Time: Jan 27, 2022 at 11:57 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -94,7 +94,7 @@ CREATE TABLE `tbl_apitokens` (
 --
 
 INSERT INTO `tbl_apitokens` (`apitoken_id`, `api_userid`, `api_productid`, `api_token`, `created_at`, `expires_on`, `is_deleted`) VALUES
-(5, 13, 1, 'azA3dwmCXMBx5bKN', '2022-01-24 06:56:30', NULL, NULL);
+(7, 16, 1, 'FXGtqIE3PiWDhlS0', '2022-01-27 13:56:19', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -108,7 +108,7 @@ CREATE TABLE `tbl_apiusers` (
   `user_key` varchar(60) DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_on` datetime DEFAULT current_timestamp(),
-  `added_by` int(11) NOT NULL DEFAULT 33,
+  `added_by` int(11) NOT NULL DEFAULT 40,
   `is_deleted` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -117,7 +117,7 @@ CREATE TABLE `tbl_apiusers` (
 --
 
 INSERT INTO `tbl_apiusers` (`apiuser_id`, `username`, `user_key`, `created_at`, `updated_on`, `added_by`, `is_deleted`) VALUES
-(13, 'mihai', 'mihai', '2022-01-24 06:56:15', '2022-01-24 06:56:15', 33, 0);
+(16, 'ian', 'ian', '2022-01-27 13:56:11', '2022-01-27 13:56:11', 40, 0);
 
 -- --------------------------------------------------------
 
@@ -131,15 +131,6 @@ CREATE TABLE `tbl_cart` (
   `product_id` int(11) NOT NULL,
   `order_quantity` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_cart`
---
-
-INSERT INTO `tbl_cart` (`order_number`, `user_id`, `product_id`, `order_quantity`) VALUES
-(14, 43, 3, 1),
-(15, 43, 2, 1),
-(16, 43, 7, 1);
 
 -- --------------------------------------------------------
 
@@ -268,6 +259,29 @@ INSERT INTO `tbl_products` (`product_id`, `product_name`, `product_description`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_purchases`
+--
+
+CREATE TABLE `tbl_purchases` (
+  `purchase_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_name` varchar(40) NOT NULL,
+  `unit_price` int(11) NOT NULL,
+  `date_created` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_purchases`
+--
+
+INSERT INTO `tbl_purchases` (`purchase_id`, `user_id`, `product_name`, `unit_price`, `date_created`) VALUES
+(12, 47, 'leo odio condimentum', 7956, '2022-01-27'),
+(13, 47, 'elementum', 8228, '2022-01-27'),
+(14, 47, 'elementum', 8228, '2022-01-27');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_roles`
 --
 
@@ -313,21 +327,6 @@ INSERT INTO `tbl_subcategories` (`subcategory_id`, `subcategory_name`, `category
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_userlogins`
---
-
-CREATE TABLE `tbl_userlogins` (
-  `userlogin_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `user_ip` varchar(25) DEFAULT NULL,
-  `login_time` datetime DEFAULT NULL,
-  `logout_time` datetime DEFAULT NULL,
-  `is_deleted` int(11) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_users`
 --
 
@@ -347,42 +346,8 @@ CREATE TABLE `tbl_users` (
 --
 
 INSERT INTO `tbl_users` (`user_id`, `first_name`, `last_name`, `email`, `password`, `gender`, `role`, `is_deleted`) VALUES
-(1, 'Cyb', 'McClay', 'cmcclay0@smh.com.au', 'HIQ2AwEtPh', 'female', 1, 0),
-(2, 'Raimund', 'Beckham', 'rbeckham1@msu.edu', 'Shuz2mBom', 'male', 1, 0),
-(3, 'Townsend', 'Jarlmann', 'tjarlmann2@nationalgeographic.com', 'u71dgcR', 'female', 1, 0),
-(4, 'Errol', 'Trowill', 'etrowill3@nasa.gov', 'c5l8ToM', 'male', 1, 0),
-(5, 'Leonardo', 'Huddles', 'lhuddles4@canalblog.com', 'zExvmc', 'female', 1, 0),
-(6, 'Hertha', 'Beneteau', 'hbeneteau5@yahoo.com', '1wT66UqnnOf', 'female', 1, 0),
-(7, 'Celine', 'Goudge', 'cgoudge6@miibeian.gov.cn', 'A5eWAwU3O', 'female', 1, 0),
-(8, 'Willow', 'Pullin', 'wpullin7@sina.com.cn', 'QpRGyMW', 'female', 1, 0),
-(9, 'Harmon', 'Polon', 'hpolon8@instagram.com', 'z048Gga2uJJ3', 'female', 1, 0),
-(10, 'Sibelle', 'Pirkis', 'spirkis9@apple.com', '1hL6hTzVD', 'male', 1, 0),
-(11, 'Gerrard', 'France', 'gfrancea@wix.com', 'sJZ8t1WKZT', 'male', 1, 0),
-(12, 'Cherise', 'Bernucci', 'cbernuccib@pcworld.com', '211j8wK', 'female', 1, 0),
-(13, 'Arnold', 'MacDermid', 'amacdermidc@digg.com', 'SijLnuOZ', 'male', 1, 0),
-(14, 'Derk', 'Antoons', 'dantoonsd@flickr.com', '5vutkObL5H', 'male', 1, 0),
-(15, 'Rollin', 'Gabrieli', 'rgabrielie@yandex.ru', '8sfhXZf', 'female', 1, 0),
-(16, 'Katharyn', 'Doge', 'kdogef@yellowpages.com', 'OBQ0xBxY', 'female', 1, 0),
-(17, 'Salli', 'Hambling', 'shamblingg@purevolume.com', 'ApjCue', 'male', 1, 0),
-(18, 'Ky', 'Mathison', 'kmathisonh@pen.io', 'vHw8iFp', 'female', 1, 0),
-(19, 'Zorah', 'Novill', 'znovilli@sitemeter.com', '8vUhTrnRs9', 'male', 1, 0),
-(20, 'Bessy', 'Nealy', 'bnealyj@woothemes.com', 'cOPSRCKSX', 'male', 1, 0),
-(21, 'Jacquetta', 'Alltimes', 'jalltimesk@europa.eu', 'wUGCZljxtLI', 'male', 1, 0),
-(22, 'Sorcha', 'Birtley', 'sbirtleyl@merriam-webster.com', 'vfx45dq1Yg', 'male', 1, 0),
-(23, 'Kevina', 'Dondon', 'kdondonm@pcworld.com', 'Z49TbgStvh', 'male', 1, 0),
-(24, 'Hendrika', 'Fullwood', 'hfullwoodn@slashdot.org', 'kDj3s0qM9UVJ', 'female', 1, 0),
-(25, 'Curtis', 'Brower', 'cbrowero@xing.com', 'SQ0GbbyM3cz', 'male', 1, 0),
-(26, 'Kelci', 'Fishpond', 'kfishpondp@nih.gov', 'R6O88Gvtw', 'female', 1, 0),
-(27, 'Kahlil', 'Beert', 'kbeertq@cbsnews.com', 'mUUnSl', 'female', 1, 0),
-(28, 'Elora', 'Fleay', 'efleayr@salon.com', '4MuCWoZn1', 'female', 1, 0),
-(29, 'Clementius', 'Minister', 'cministers@twitpic.com', 'TPXObIthv', 'female', 1, 0),
-(30, 'Selby', 'Moden', 'smodent@netscape.com', 'YmCK2EeJFNAq', 'female', 1, 0),
-(31, 'Chelsea', 'Almona', 'chelseaal@gmail.com', 'qwerty', 'female', 3, 0),
-(33, 'Test', 'Tester', 'test@gmail.com', 'test', 'male', 1, 0),
-(36, 'Sean', 'Kinuthia', 'sean@gmail.com', 'sean', 'male', 1, 0),
-(38, 'Mihai', 'Ignat', 'mihai@gmail.com', 'mihai', 'male', 1, 0),
 (40, 'Test', 'Admin', 'test@gmail.com', 'test', 'male', 3, 0),
-(43, 'Ian', 'Koech', 'ian@gmail.com', 'ian', 'male', 1, 0);
+(47, 'Ian', 'Koech', 'ian@gmail.com', 'ian', 'male', 1, 0);
 
 --
 -- Triggers `tbl_users`
@@ -412,7 +377,7 @@ CREATE TABLE `tbl_wallet` (
 --
 
 INSERT INTO `tbl_wallet` (`wallet_id`, `user_id`, `amount_available`, `created_at`, `updated_at`, `is_deleted`) VALUES
-(4, 43, 20020, '2022-01-22 19:53:17', '2022-01-22 19:53:17', 0);
+(8, 47, 17956, '2022-01-27 08:38:38', '2022-01-27 08:38:38', 0);
 
 --
 -- Indexes for dumped tables
@@ -489,6 +454,13 @@ ALTER TABLE `tbl_products`
   ADD KEY `added_by` (`added_by`);
 
 --
+-- Indexes for table `tbl_purchases`
+--
+ALTER TABLE `tbl_purchases`
+  ADD PRIMARY KEY (`purchase_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `tbl_roles`
 --
 ALTER TABLE `tbl_roles`
@@ -500,13 +472,6 @@ ALTER TABLE `tbl_roles`
 ALTER TABLE `tbl_subcategories`
   ADD PRIMARY KEY (`subcategory_id`),
   ADD KEY `category` (`category`);
-
---
--- Indexes for table `tbl_userlogins`
---
-ALTER TABLE `tbl_userlogins`
-  ADD PRIMARY KEY (`userlogin_id`),
-  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `tbl_users`
@@ -542,19 +507,19 @@ ALTER TABLE `tbl_apiproducts`
 -- AUTO_INCREMENT for table `tbl_apitokens`
 --
 ALTER TABLE `tbl_apitokens`
-  MODIFY `apitoken_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `apitoken_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_apiusers`
 --
 ALTER TABLE `tbl_apiusers`
-  MODIFY `apiuser_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `apiuser_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `order_number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `order_number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `tbl_categories`
@@ -587,6 +552,12 @@ ALTER TABLE `tbl_products`
   MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
+-- AUTO_INCREMENT for table `tbl_purchases`
+--
+ALTER TABLE `tbl_purchases`
+  MODIFY `purchase_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
 -- AUTO_INCREMENT for table `tbl_roles`
 --
 ALTER TABLE `tbl_roles`
@@ -599,22 +570,16 @@ ALTER TABLE `tbl_subcategories`
   MODIFY `subcategory_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tbl_userlogins`
---
-ALTER TABLE `tbl_userlogins`
-  MODIFY `userlogin_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `tbl_wallet`
 --
 ALTER TABLE `tbl_wallet`
-  MODIFY `wallet_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `wallet_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
@@ -670,16 +635,16 @@ ALTER TABLE `tbl_products`
   ADD CONSTRAINT `tbl_products_ibfk_2` FOREIGN KEY (`added_by`) REFERENCES `tbl_users` (`user_id`);
 
 --
+-- Constraints for table `tbl_purchases`
+--
+ALTER TABLE `tbl_purchases`
+  ADD CONSTRAINT `tbl_purchases_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_users` (`user_id`);
+
+--
 -- Constraints for table `tbl_subcategories`
 --
 ALTER TABLE `tbl_subcategories`
   ADD CONSTRAINT `tbl_subcategories_ibfk_1` FOREIGN KEY (`category`) REFERENCES `tbl_categories` (`category_id`);
-
---
--- Constraints for table `tbl_userlogins`
---
-ALTER TABLE `tbl_userlogins`
-  ADD CONSTRAINT `tbl_userlogins_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_users` (`user_id`);
 
 --
 -- Constraints for table `tbl_users`

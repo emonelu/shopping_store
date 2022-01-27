@@ -17,7 +17,7 @@ class UserModel extends Model
         return $row;
     }
 
-    public function checkCreds($email, $password)
+    function checkCreds($email, $password)
     {
         $db = db_connect();
 

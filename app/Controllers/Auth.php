@@ -11,15 +11,15 @@ class Auth extends BaseController
     {
         return view('auth/login.php');
     }
-    public function login()
+    function login()
     {
         //fetch the email and password from POST data
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
-        //TODO Handle the login backend functionality
+        //sasa this data inafaa kutumwa kwa Model inaitwa UserModel...Hio model ndio inainteract na DB
         $userModel = new UserModel();
         $result = $userModel->checkCreds($email, $password);
-
+        //After model imereturn the result of the operation data inakua processed hapa
         try {
             if (count($result) > 0) {
                 $name = $result['first_name'];
@@ -35,6 +35,7 @@ class Auth extends BaseController
                 echo 2;
             }
         } catch (\Throwable $th) {
+            //nimetumia try catch block juu $result inaweza kuwa empty..na count() itathrow exception kama ni empty
             echo 3;
         }
     }

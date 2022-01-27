@@ -207,7 +207,9 @@
 
 
         }
+
         $('#order').click(function() {
+
             if ((wallet_balance - total_cost) < 0) {
                 window.location.replace('<?php echo site_url('Home/user') ?>')
 
@@ -216,6 +218,7 @@
                     'userid': $('#userid').val()
                 }
                 var purchase = []
+
                 $.ajax({
                     url: "<?php echo base_url('Items/fetchCart') ?>",
                     method: 'post',
@@ -229,6 +232,7 @@
                                     unit_price: this.unit_price
                                 })
 
+
                             })
                             recordPurchase(purchase)
 
@@ -238,6 +242,8 @@
                 })
 
             }
+
+
 
         })
     }
