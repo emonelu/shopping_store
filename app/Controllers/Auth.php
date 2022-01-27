@@ -128,7 +128,11 @@ class Auth extends BaseController
 
         $result = $handler->addUser($firstname, $lastname, $email, $password, $gender);
 
-        return $result;
+        if ($result) {
+            echo 1;
+        } else {
+            echo 2;
+        }
     }
     public function logout()
     {

@@ -58,7 +58,9 @@
                     data: details,
                     success: function(result) {
                         if (result == 1) {
-                            window.location.replace('<?php echo base_url('Auth/login') ?>')
+                            window.location.replace('<?php echo base_url('Auth') ?>')
+                        } else {
+                            console.log('There has been an error');
                         }
 
                     }
