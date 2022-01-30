@@ -83,7 +83,7 @@ class Admin extends BaseController
     {
 
         $products = new ItemModel();
-        $result['catalog'] = $products->displayCatalog();
+        $result['catalog'] = $products->fetchAllProducts();
 
         return $this->response->setJSON($result);
     }
